@@ -95,7 +95,7 @@
 				<configuration>
 					<delimiters>
 						<delimiter>$</delimiter>
-s					</delimiters>
+					</delimiters>
 				</configuration>
 			</plugin>
 		</plugins>
