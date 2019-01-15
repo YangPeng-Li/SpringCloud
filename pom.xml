@@ -9,7 +9,7 @@
   
   <artifactId>microservicecloud-provider-dept-8001</artifactId>
   <dependencies>
-  	<!-- 引入自定义的 -->
+  	<!-- 引入自定义的api 通用的包，可以使用Dept部门Entity -->
   	<dependency>
 		 <groupId>com.lyp.springcloud</groupId>
 		 <artifactId>microservicecloud-api</artifactId>
@@ -83,9 +83,6 @@
   		<artifactId>spring-boot-starter-actuator</artifactId>
   	</dependency>
   	
-  	
   </dependencies>
-  
-  
   
 </project>
