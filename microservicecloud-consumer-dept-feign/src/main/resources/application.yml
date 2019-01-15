@@ -1,0 +1,12 @@
+server:
+  port: 80 
+
+feign:  
+  Hystrix:  
+    enable: true # 服务降级在客户端，熔断器修改
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone:  Http://eureka7001.com:7001/eureka/,Http://eureka7002.com:7002/eureka/,Http://eureka7003.com:7003/eureka/

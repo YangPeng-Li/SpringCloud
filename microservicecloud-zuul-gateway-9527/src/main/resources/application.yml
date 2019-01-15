@@ -1,0 +1,26 @@
+server: 
+  port: 9527
+
+spring: 
+  application:
+    name: microservicecloud-zuul-gateway
+
+eureka:
+  client:
+    defaultZone:  http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address:    true
+zuul: 
+  prefix: /lyp
+  #ignored-services: microservicecloud-dept   # 忽略，  原来的真实路径不再能被访问了   
+  ignored-services: "*"                       # 多个微服务用“*”替代
+  routes:
+    mydept.serviceId: microservicecloud-dept    #befor   http://myzuul.com:9527/microservice-dept/dept/get2
+    mydept.path:  /mydept/**                    #after   http://myzuul.com:9527/mydept/dept/get/1
+    
+info: 
+  app.name: lyp-microcloud
+  company.name: www.lyp.com
+  build.artifactId: $project.artifactId$
+  build.version:  $project.version$    
