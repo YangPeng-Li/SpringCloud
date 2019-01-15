@@ -1,8 +1,13 @@
 package com.lyp.springcloud.cfgbean;
 
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
+
+import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RandomRule;
+import com.netflix.loadbalancer.RoundRobinRule;
 
 /**
  * RestTemplate 提供了多种便捷访问远程Http服务的方法[客户端]
@@ -24,9 +29,18 @@ import org.springframework.web.client.RestTemplate;
 public class ConfigBean {  //boot ---->string applicationContext.xml ----@Configration 配置 configBean = application.xml
 
 	@Bean
+	@LoadBalanced//给客户端装个LB 自己实现负载均衡  SpringCloud Ribbon 是基于Netflix Ribbon 实现的一套客户端，负载均衡的工具
 	public RestTemplate getRestTemplate ()
 	{
 		return new RestTemplate();
 	}
+	
+	@Bean
+	public IRule myRule ()
+	{
+//		return new RoundRobinRule();//选用随机算法替代默认的轮询算法
+		return new RandomRule();//选用随机算法替代默认的轮询算法
+	}
+	
 	
 }

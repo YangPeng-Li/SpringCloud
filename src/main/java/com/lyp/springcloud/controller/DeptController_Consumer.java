@@ -31,7 +31,9 @@ import com.lyp.springcloud.entities.Dept;
 public class DeptController_Consumer 
 {
 
-	private static final String REST_URL_CONSUMER_PREFIX = "http://localhost:8001";
+//	private static final String REST_URL_CONSUMER_PREFIX = "http://localhost:8001";
+	//7001 7002 7003 8001 80 Ribbon 和Eureka整合后Consumer可以直接访问服务而不用再关心地址和端口
+	private static final String REST_URL_CONSUMER_PREFIX = "MICROSERVICECLOUD-DEPT"; //微服务名
 	
 	@Autowired
 	private RestTemplate restTemplate;
